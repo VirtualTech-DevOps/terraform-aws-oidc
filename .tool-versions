@@ -1,0 +1,3 @@
+terraform 1.4.6
+awscli 2.11.24
+github-cli 2.30.0
