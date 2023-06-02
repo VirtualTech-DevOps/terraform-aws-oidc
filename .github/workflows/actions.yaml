@@ -10,7 +10,7 @@ jobs:
       - name: Configure AWS Credentials For GitHub Actions
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: ${{ env.assume_role }}
-          aws-region: ${{ env.aws_region }}
+          role-to-assume: ${{ vars.assume_role }}
+          aws-region: ${{ vars.aws_region }}
       - name: Get details about the IAM role
         run: aws sts get-caller-identity
