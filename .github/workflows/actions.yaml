@@ -1,0 +1,16 @@
+on: push
+
+jobs:
+  connect-aws:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Configure AWS Credentials For GitHub Actions
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ env.assume_role }}
+          aws-region: ${{ env.aws_region }}
+      - name: Get details about the IAM role
+        run: aws sts get-caller-identity
